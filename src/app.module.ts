@@ -3,12 +3,14 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './configs/ormconfig';
 import { UserMiddleware } from './get-user-middleware';
-import { Proposal, User } from './entities/entities.entity';
+import { User } from './entities/entities.entity';
+import { ProposalsModule } from './proposals/proposals.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(dataSourceOptions),
-    TypeOrmModule.forFeature([User, Proposal]),
+    TypeOrmModule.forFeature([User]),
+    ProposalsModule,
   ],
   controllers: [AppController],
 })
