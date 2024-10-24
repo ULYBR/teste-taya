@@ -5,7 +5,7 @@ dotenv.config();
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'sqlite',
-  database: 'database.sqlite3',
+  database: process.env.DB_NAME,
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   migrationsTableName: 'migrations',
   migrations: ['dist/migrations/*.js'],
