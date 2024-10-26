@@ -6,7 +6,6 @@ import {
   Delete,
   Body,
   Param,
-  Req,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './../../dtos/user/create-user.dto';
@@ -43,9 +42,5 @@ export class UsersController {
   @Delete(':id')
   async remove(@Param('id') id: number): Promise<void> {
     return this.usersService.remove(id);
-  }
-  @Get('profile')
-  async getProfile(@Req() req: Request): Promise<User> {
-    return this.usersService.findByUserId(Number(req.headers['user_id']));
   }
 }

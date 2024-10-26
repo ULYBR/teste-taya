@@ -1,4 +1,8 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import {
+  Injectable,
+  NestMiddleware,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { UsersService } from './module/users/users.service';
 
@@ -7,23 +11,35 @@ export class UserMiddleware implements NestMiddleware {
   constructor(private readonly usersService: UsersService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
-    const userId = req.headers['user_id'];
-    console.log('Headers:', req.headers);
-    const userdd = 1;
-    console.log('userId', userId);
+    try {
+      const authHeader = req.headers['authorization'];
 
-    if (userId) {
-      return res.status(401).json({ message: 'user_id is required' });
+      if (!authHeader) {
+        throw new UnauthorizedException('Authorization header is missing');
+      }
+
+      const tokenParts = authHeader.split(' ');
+      if (tokenParts.length !== 2 || tokenParts[0] !== 'Bearer') {
+        throw new UnauthorizedException('Invalid authorization format');
+      }
+
+      const userId = Number(tokenParts[1]);
+      console.log(userId);
+
+      if (isNaN(userId)) {
+        throw new UnauthorizedException('User ID must be a valid number');
+      }
+
+      const user = await this.usersService.findOne(userId);
+
+      if (user && user.id === userId) {
+        (req as any).user = user;
+        next();
+      } else {
+        throw new UnauthorizedException('Unauthorized');
+      }
+    } catch (error) {
+      res.status(401).json({ message: error.message });
     }
-
-    const user = await this.usersService.findByUserId(Number(userdd));
-
-    if (!user) {
-      return res
-        .status(404)
-        .json({ message: `User with id ${userId} not found` });
-    }
-
-    next();
   }
 }
