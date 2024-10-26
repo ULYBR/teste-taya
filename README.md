@@ -95,10 +95,10 @@ Quando você terminar a tarefa, compacte o seu repositório (certifique-se de in
 Obrigado e boa sorte! 🙏
 
 
-# Entrega 
-# Taya API
+# Entrega
 
-Esta é a API do projeto Taya. A API fornece funcionalidades para gerenciar usuários, clientes e propostas, com autorização baseada em Bearer Token.
+Este projeto é para fins de avaliação de habilidades.
+
 ## Como Usar
 
 1. Clone este repositório.
@@ -214,3 +214,7 @@ A autenticação é realizada através de um Bearer Token. Para acessar as rotas
 
 - vez de ser authenticado pelo userId, implementar jwt auth na aplicação para maior segurança.
 - implementação de variáveis de ambiente para não dá acesso as conexão com string de banco de dados ou variaveis que não poderia ser vista.
+
+## Licença
+
+Você pode encontrar mais informações sobre a licença deste projeto em [LICENSE.md](LICENSE.md).
