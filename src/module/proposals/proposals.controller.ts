@@ -2,15 +2,13 @@ import {
   Controller,
   Get,
   Post,
-  Put,
-  Delete,
   Param,
   Body,
   Request,
+  Query,
 } from '@nestjs/common';
 import { ProposalService } from './proposals.service';
 import { CreateProposalDto } from './../../dtos/proposal/create-proposal.dto';
-import { UpdateProposalDto } from './../../dtos/proposal/update-proposal.dto';
 import { Proposal } from 'src/entities/entities.entity';
 
 @Controller('proposals')
@@ -23,7 +21,7 @@ export class ProposalController {
     @Request() req,
   ): Promise<Proposal> {
     const user = req.user;
-    return this.proposalsService.createProposal({ createProposalDto, user });
+    return this.proposalsService.createProposal(createProposalDto, user);
   }
 
   @Get(':id')
@@ -36,17 +34,30 @@ export class ProposalController {
     return this.proposalsService.findAll(req.user);
   }
 
-  @Put(':id')
-  async update(
-    @Param('id') id: number,
-    @Body() updateProposalDto: UpdateProposalDto,
-    @Request() req,
-  ): Promise<Proposal> {
-    return this.proposalsService.update(id, updateProposalDto, req.user);
+  @Get('refused')
+  async findRefused(@Request() req): Promise<Proposal[]> {
+    return this.proposalsService.findRefused(req.user);
   }
 
-  @Delete(':id')
-  async remove(@Param('id') id: number, @Request() req): Promise<void> {
-    return this.proposalsService.remove(id, req.user);
+  @Post(':id/approve')
+  async approveProposal(
+    @Param('id') id: number,
+    @Request() req,
+  ): Promise<Proposal> {
+    return this.proposalsService.approveProposal(id, req.user);
+  }
+
+  // Admin endpoints
+  @Get('admin/profit-by-status')
+  async getProfitByStatus(): Promise<any> {
+    return this.proposalsService.getProfitByStatus();
+  }
+
+  @Get('admin/best-users')
+  async getBestUsers(
+    @Query('start') start: Date,
+    @Query('end') end: Date,
+  ): Promise<any> {
+    return this.proposalsService.getBestUsers(start, end);
   }
 }

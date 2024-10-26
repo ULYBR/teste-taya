@@ -5,9 +5,16 @@ import { ProposalModule } from './module/proposals/proposals.module';
 import { UsersModule } from './module/users/users.module';
 import { CustomersModule } from './module/customers/customers.module';
 import { AppController } from './app.controller';
+import { dataSourceOptions } from './configs/ormconfig';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [ProposalModule, UsersModule, CustomersModule],
+  imports: [
+    TypeOrmModule.forRoot(dataSourceOptions),
+    ProposalModule,
+    UsersModule,
+    CustomersModule,
+  ],
   controllers: [AppController],
 })
 export class AppModule implements NestModule {

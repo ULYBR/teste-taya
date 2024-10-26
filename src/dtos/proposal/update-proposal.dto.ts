@@ -1,4 +1,5 @@
-import { IsOptional, IsDecimal } from 'class-validator';
+import { IsDecimal, IsEnum, IsOptional } from 'class-validator';
+import { ProposalStatus } from './../../entities/entities.entity';
 
 export class UpdateProposalDto {
   @IsOptional()
@@ -6,5 +7,6 @@ export class UpdateProposalDto {
   profit?: number;
 
   @IsOptional()
-  status?: string;
+  @IsEnum(ProposalStatus)
+  status?: ProposalStatus;
 }
