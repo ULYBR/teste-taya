@@ -24,7 +24,6 @@ export class UserMiddleware implements NestMiddleware {
       }
 
       const userId = Number(tokenParts[1]);
-      console.log(userId);
 
       if (isNaN(userId)) {
         throw new UnauthorizedException('User ID must be a valid number');

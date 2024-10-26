@@ -1,14 +1,15 @@
-import { IsDecimal, IsEnum, IsNotEmpty, IsOptional } from 'class-validator';
-import { ProposalStatus } from './../../entities/entities.entity';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateProposalDto {
+  @IsString()
   @IsNotEmpty()
-  customerId: number;
+  title: string;
 
-  @IsDecimal()
+  @IsString()
+  @IsNotEmpty()
+  description: string;
+
+  @IsNumber()
+  @IsNotEmpty()
   profit: number;
-
-  @IsOptional()
-  @IsEnum(ProposalStatus)
-  status?: ProposalStatus;
 }

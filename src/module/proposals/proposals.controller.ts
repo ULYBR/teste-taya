@@ -1,63 +1,77 @@
+// src/controllers/proposal.controller.ts
 import {
   Controller,
   Get,
   Post,
+  Patch,
+  Delete,
   Param,
   Body,
-  Request,
   Query,
+  Req,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { ProposalService } from './proposals.service';
 import { CreateProposalDto } from './../../dtos/proposal/create-proposal.dto';
-import { Proposal } from 'src/entities/entities.entity';
+import { UpdateProposalDto } from './../../dtos/proposal/update-proposal.dto';
+import { ProposalStatus } from 'src/entities/entities.entity';
 
 @Controller('proposals')
 export class ProposalController {
-  constructor(private readonly proposalsService: ProposalService) {}
+  constructor(private readonly proposalService: ProposalService) {}
 
   @Post()
-  async create(
+  async createProposal(
     @Body() createProposalDto: CreateProposalDto,
-    @Request() req,
-  ): Promise<Proposal> {
+    @Req() req,
+  ) {
     const user = req.user;
-    return this.proposalsService.createProposal(createProposalDto, user);
+    return await this.proposalService.createProposal(createProposalDto, user);
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: number, @Request() req): Promise<Proposal> {
-    return this.proposalsService.findOne(id, req.user);
+  async getProposal(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    const user = req.user;
+    return await this.proposalService.findOne(id, user);
   }
 
   @Get()
-  async findAll(@Request() req): Promise<Proposal[]> {
-    return this.proposalsService.findAll(req.user);
+  async getProposalsByStatus(
+    @Query('status') status: ProposalStatus,
+    @Req() req,
+  ) {
+    const user = req.user;
+    return await this.proposalService.findAllByStatus(user, status);
   }
 
-  @Get('refused')
-  async findRefused(@Request() req): Promise<Proposal[]> {
-    return this.proposalsService.findRefused(req.user);
-  }
-
-  @Post(':id/approve')
+  @Post(':proposal_id/approve')
   async approveProposal(
-    @Param('id') id: number,
-    @Request() req,
-  ): Promise<Proposal> {
-    return this.proposalsService.approveProposal(id, req.user);
+    @Param('proposal_id', ParseIntPipe) proposalId: number,
+    @Req() req,
+  ) {
+    const user = req.user;
+    return await this.proposalService.approveProposal(proposalId, user);
   }
 
-  // Admin endpoints
-  @Get('admin/profit-by-status')
-  async getProfitByStatus(): Promise<any> {
-    return this.proposalsService.getProfitByStatus();
+  @Patch(':id')
+  async updateProposal(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateProposalDto: UpdateProposalDto,
+    @Req() req,
+  ) {
+    const user = req.user;
+    return await this.proposalService.update(id, updateProposalDto, user);
   }
 
-  @Get('admin/best-users')
-  async getBestUsers(
-    @Query('start') start: Date,
-    @Query('end') end: Date,
-  ): Promise<any> {
-    return this.proposalsService.getBestUsers(start, end);
+  @Delete(':id')
+  async deleteProposal(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    const user = req.user;
+    return await this.proposalService.remove(id, user);
+  }
+
+  @Get('/admin/profit-by-status')
+  async getProfitByStatus() {
+    const profile = await this.proposalService.getProfitByStatus();
+    return { profile };
   }
 }

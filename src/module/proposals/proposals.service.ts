@@ -22,6 +22,21 @@ export class ProposalService {
     private readonly userRepository: Repository<User>,
   ) {}
 
+  private async validateUserOwnership(
+    userId: number,
+    proposalId: number,
+  ): Promise<Proposal> {
+    const proposal = await this.proposalRepository.findOne({
+      where: { id: proposalId, userCreator: { id: userId } },
+    });
+    if (!proposal) {
+      throw new NotFoundException(
+        'Proposta não encontrada ou não pertence ao usuário',
+      );
+    }
+    return proposal;
+  }
+
   async createProposal(
     createProposalDto: CreateProposalDto,
     user: User,
@@ -36,44 +51,85 @@ export class ProposalService {
   }
 
   async findOne(id: number, user: User): Promise<Proposal> {
-    const proposal = await this.proposalRepository.findOne({
-      where: { id, userCreator: user },
+    return await this.validateUserOwnership(user.id, id);
+  }
+
+  async findAllByUser(user: User): Promise<Proposal[]> {
+    return await this.proposalRepository.find({
+      where: { userCreator: { id: user.id } },
     });
-    if (!proposal) {
-      throw new NotFoundException(
-        'Proposal not found or does not belong to the user',
-      );
+  }
+
+  async findAllByStatus(
+    user: User,
+    status?: ProposalStatus,
+  ): Promise<Proposal[]> {
+    const proposals = await this.findAllByUser(user);
+    if (status) {
+      return proposals.filter((proposal) => proposal.status === status);
     }
-    return proposal;
-  }
-
-  async findAll(user: User): Promise<Proposal[]> {
-    return await this.proposalRepository.find({
-      where: { userCreator: user, status: ProposalStatus.PENDING },
-    });
-  }
-
-  async findRefused(user: User): Promise<Proposal[]> {
-    return await this.proposalRepository.find({
-      where: { userCreator: user, status: ProposalStatus.REFUSED },
-    });
+    return proposals;
   }
 
   async approveProposal(id: number, user: User): Promise<Proposal> {
-    const proposal = await this.findOne(id, user);
+    const proposal = await this.validateUserOwnership(user.id, id);
 
     if (proposal.status !== ProposalStatus.PENDING) {
-      throw new BadRequestException('Proposal is not pending');
+      throw new BadRequestException('Proposta não está pendente');
     }
 
-    proposal.status = ProposalStatus.SUCCESSFUL; // Atualiza o status da proposta
+    proposal.status = ProposalStatus.SUCCESSFUL;
     proposal.updatedAt = new Date();
-
-    // Lógica para creditar o lucro ao usuário
-    user.balance += proposal.profit; // Supondo que user tenha um campo balance
+    user.balance += proposal.profit;
     await this.userRepository.save(user);
 
     return await this.proposalRepository.save(proposal);
+  }
+
+  async getProfitByStatus(): Promise<any> {
+    const query = this.proposalRepository
+      .createQueryBuilder('proposal')
+      .select('user.id', 'userId')
+      .addSelect('user.name', 'fullName')
+      .addSelect(
+        'SUM(CASE WHEN proposal.status = :successful THEN proposal.profit ELSE 0 END)',
+        'successfulProfit',
+      )
+      .addSelect(
+        'SUM(CASE WHEN proposal.status = :pending THEN proposal.profit ELSE 0 END)',
+        'pendingProfit',
+      )
+      .addSelect(
+        'SUM(CASE WHEN proposal.status = :refused THEN proposal.profit ELSE 0 END)',
+        'refusedProfit',
+      )
+      .addSelect(
+        'SUM(CASE WHEN proposal.status = :error THEN proposal.profit ELSE 0 END)',
+        'errorProfit',
+      )
+      .innerJoin('proposal.userCreator', 'user')
+      .groupBy('user.id')
+      .addGroupBy('user.name')
+      .setParameters({
+        successful: ProposalStatus.SUCCESSFUL,
+        pending: ProposalStatus.PENDING,
+        refused: ProposalStatus.REFUSED,
+        error: ProposalStatus.ERROR,
+      });
+
+    const result = await query.getRawMany();
+
+    // Estruturação da resposta
+    return result.map((row) => ({
+      userId: row.userId,
+      fullName: row.fullName,
+      profits: {
+        PENDING: parseFloat(row.pendingProfit) || 0,
+        SUCCESSFUL: parseFloat(row.successfulProfit) || 0,
+        REFUSED: parseFloat(row.refusedProfit) || 0,
+        ERROR: parseFloat(row.errorProfit) || 0,
+      },
+    }));
   }
 
   async update(
@@ -81,38 +137,14 @@ export class ProposalService {
     updateProposalDto: UpdateProposalDto,
     user: User,
   ): Promise<Proposal> {
-    const proposal = await this.findOne(id, user);
+    const proposal = await this.validateUserOwnership(user.id, id);
     Object.assign(proposal, updateProposalDto);
     proposal.updatedAt = new Date();
     return await this.proposalRepository.save(proposal);
   }
 
   async remove(id: number, user: User): Promise<void> {
-    const proposal = await this.findOne(id, user);
+    const proposal = await this.validateUserOwnership(user.id, id);
     await this.proposalRepository.remove(proposal);
-  }
-
-  async getProfitByStatus(): Promise<any> {
-    return await this.proposalRepository
-      .createQueryBuilder('proposal')
-      .select('userCreator.id', 'userId')
-      .addSelect('SUM(profit)', 'totalProfit')
-      .groupBy('userCreator.id')
-      .getRawMany();
-  }
-
-  async getBestUsers(startDate: Date, endDate: Date): Promise<any> {
-    return await this.proposalRepository
-      .createQueryBuilder('proposal')
-      .select('userCreator.id', 'userId')
-      .addSelect('SUM(profit)', 'totalProfit')
-      .where('proposal.status = :status', { status: ProposalStatus.SUCCESSFUL })
-      .andWhere('proposal.createdAt BETWEEN :start AND :end', {
-        start: startDate,
-        end: endDate,
-      })
-      .groupBy('userCreator.id')
-      .orderBy('totalProfit', 'DESC')
-      .getRawMany();
   }
 }
