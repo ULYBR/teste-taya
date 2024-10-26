@@ -50,17 +50,17 @@ O exercício requer [Node.js](https://nodejs.org/en/) 16. Recomendamos a versão
 
 Abaixo está uma lista das APIs necessárias para o aplicativo.
 
-1. **_GET_** `/proposals/:id` - Corrigir a API para retornar a proposta apenas se pertencer ao user que está chamando.
+1. **_GET_** `/proposals/:id` - Corrigir a API para retornar a proposta apenas se pertencer ao user que está chamando.✅
 
-1. **_GET_** `/proposals` - Retorna lista de proposals pendentes de um user.
+1. **_GET_** `/proposals` - Retorna lista de proposals pendentes de um user.✅
 
-1. **_GET_** `/proposals/refused` - Obter propostas rejeitadas criadas por um user.
+1. **_GET_** `/proposals/refused` - Obter propostas rejeitadas criadas por um user.✅
 
-1. **_POST_** `/proposals/:proposal_id/approve` - Dado uma proposta pendente, aprovar a proposta por id, retornar a proposta atualizada, valor do profit deve ser credita no usuario que executou a operacao.
+1. **_POST_** `/proposals/:proposal_id/approve` - Dado uma proposta pendente, aprovar a proposta por id, retornar a proposta atualizada, valor do profit deve ser credita no usuario que executou a operacao.✅
 
-1. **_GET_** `/admin/profit-by-status` - Retorna a soma do profit de todas as propostas por usuario agrupada por status.
+1. **_GET_** `/admin/profit-by-status` - Retorna a soma do profit de todas as propostas por usuario agrupada por status.✅
 
-1. **_GET_** `/admin/best-users?start=<date>&end=<date>` - Retorna os users que possuem o maior profit de propostas em sucesso vinculado.
+1. **_GET_** `/admin/best-users?start=<date>&end=<date>` - Retorna os users que possuem o maior profit de propostas em sucesso vinculado.⛔
 
 ```
  [
@@ -93,3 +93,124 @@ Seria ótimo, por exemplo, se você escrevesse alguns testes unitários ou uma d
 Quando você terminar a tarefa, compacte o seu repositório (certifique-se de incluir a pasta .git) e nos envie o arquivo zipado.
 
 Obrigado e boa sorte! 🙏
+
+
+# Entrega 
+# Taya API
+
+Esta é a API do projeto Taya. A API fornece funcionalidades para gerenciar usuários, clientes e propostas, com autorização baseada em Bearer Token.
+## Como Usar
+
+1. Clone este repositório.
+    ```bash
+        https://github.com/ULYBR/teste-taya.git
+    ```
+2. Instale as dependências:
+    ```bash
+        npm install
+    ```
+
+## Autenticação
+
+A autenticação é realizada através de um Bearer Token. Para acessar as rotas, você deve passar o ID do usuário no token. Certifique-se de que o token é incluído no cabeçalho da solicitação como `Authorization: Bearer <token>`.
+## Alteração
+- os endpoint `/proposals/refused` e `/proposals` foi alterado `/proposals`: só passar params status com o tipo do status que queira filtrar para retorna os dados.
+- implementação de váriavel de ambiente, caso usuário queira usar só altera o arquivo `env.example` para `.env`.
+## Rotas
+
+### Usuários
+
+- **POST** `/users`
+  - Cria um novo usuário.
+  - **Exemplo de Request:**
+    ```json
+    {
+      "name": "John Doe",
+      "balance": 1000
+    }
+    ```
+
+- **GET** `/users`
+  - Retorna todos os usuários.
+
+- **GET** `/users/:id`
+  - Retorna um usuário específico pelo ID.
+
+- **PUT** `/users/:id`
+  - Atualiza um usuário específico pelo ID.
+  - **Exemplo de Request:**
+    ```json
+    {
+      "name": "Jane Doe",
+      "balance": 1500
+    }
+    ```
+
+- **DELETE** `/users/:id`
+  - Remove um usuário específico pelo ID.
+
+### Clientes
+
+- **POST** `/customers`
+  - Cria um novo cliente.
+  - **Exemplo de Request:**
+    ```json
+    {
+      "name": "Alice Smith",
+      "cpf": "123.456.789-00"
+    }
+    ```
+
+### Propostas
+
+- **POST** `/proposals`
+  - Cria uma nova proposta.
+  - **Exemplo de Request:**
+    ```json
+    {
+      "status": "PEDING",
+      "profit": 500
+    }
+    ```
+
+- **GET** `/proposals/:id`
+  - Retorna uma proposta específica pelo ID.
+
+- **GET** `/proposals?status=PENDING`
+  - Retorna todas as propostas filtradas pelo status.
+
+- **POST** `/proposals/:proposal_id/approve`
+  - Aprova uma proposta específica pelo ID.
+
+- **PATCH** `/proposals/:id`
+  - Atualiza uma proposta específica pelo ID.
+  - **Exemplo de Request:**
+    ```json
+    {
+      "status": "PEDING",
+      "profit": 500
+    }
+    ```
+
+- **DELETE** `/proposals/:id`
+  - Remove uma proposta específica pelo ID.
+
+### Profit by Status (Admin)
+
+- **GET** `/admin/profit-by-status`
+  - Retorna a soma do lucro das propostas agrupadas por status para todos os usuários.
+
+## Como Usar
+
+1. Clone este repositório.
+    ```bash
+        https://github.com/ULYBR/teste-taya.git
+    ```
+2. Instale as dependências:
+    ```bash
+        npm install
+    ```
+# Melhorias do projeto que não deu tempo mais foi levantando
+
+- vez de ser authenticado pelo userId, implementar jwt auth na aplicação para maior segurança.
+- implementação de variáveis de ambiente para não dá acesso as conexão com string de banco de dados ou variaveis que não poderia ser vista.

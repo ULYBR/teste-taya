@@ -1,14 +1,10 @@
-import { IsOptional, IsString, IsNumber, IsEnum } from 'class-validator';
+import { IsOptional, IsNumber, IsEnum } from 'class-validator';
 import { ProposalStatus } from './../../entities/entities.entity';
 
 export class UpdateProposalDto {
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  title?: string;
-
-  @IsString()
-  @IsOptional()
-  description?: string;
+  id?: number;
 
   @IsNumber()
   @IsOptional()

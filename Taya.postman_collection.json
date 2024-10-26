@@ -1,0 +1,1530 @@
+{
+	"info": {
+		"_postman_id": "d8db0573-3e91-4f7c-ad05-f3b7d4833867",
+		"name": "Taya",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34750677"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users",
+							"host": [
+								"{{base_url}}users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}users",
+									"host": [
+										"{{base_url}}users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:30:07 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "626"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"272-T7d5jR/i9vCI3RWA3nMMcg0XVLs\""
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8E0FHi1JCVNKrny-ARCYWxPnTnl_2IGp3bQGbXqvg4KwvvH1Lh0ybwXvQolT0dHXz3BNBSkGPLGeMw228sFwTWweyfYDPKbG5mPri2W7OXYf4WhzQr-Kt1SEHKpaKAI1zXlRjNsBOP8NlJrIqVD-Pu-0OVE2qR_zVC2uumW6IXXtHAW_VFfwo-M_0I_nEfZ3GIVPeed_2OHoCkWNR66Lo47DDoQQycz9t9ywlb4uT_WW2QtZK20lZozrqn0xV-2S2ZUPjrQ9d_h5Aa7u1nvqPPo31MHJDhAVMhLHOcT6q_-q204b_tx7Aa8FvZAo23UhTGMbMJG15PaweQBw5wGfooJCVokwbpgQvg8Uc8Dh1cYupuMkifiXLiY1z3xGhLBD-Ys_I-wQ5OUIjAoOeUwtgsE7CN8e_7EEcJmcFtr_dHVWOhF7MVhNJ56m0J8KMBssFyt4QBA3Y8wih8IAVY7htqymw1V-AL0iKaPhnMNVVl-LeHY5OhVnZa2nkTCE2ptTv2OKE4ranRzw_UjJb4jFsPk2o8_zMN-CAcs2HLXuuz746taPmp16QKWc3prb-WHPVs5k1jYVOw4aaPfoA-Un3qQdOSyMJJ7kgG7oK194wGkiAmwx9XwCwzDCK4MKQcy1GIkAWpysS9GfMdwcFXHXxwKAeKu_zDBQHnjmXKc2K8jRv-0un-hOPTGLO1v0p9Hu-gIlKs3Rs6ISdD0nInbyLY6r8fZsr3yQ-aXcraFRe6qNeeIyaQ6h2gKi6t48UowZVMoiaoRSh3RpWE-JaOGBYtLTgtTn8lLSX5eP_cQyWZtZygwkslQj4oVbSZlRDD50rtjpa9uEyiW4gaJ7bcc3jK4VDSsqvR_2d7N68dpqI9id5NsUfbn30LWNwU3RFs7QjL5ELaXUV1pLWQU-LZdDXIH36bxtkpcO2tSSuPtTzg8VvWLT63cyiwziX6scQ8_HxurZzbR8-WI9jjhIEwnw2BkYMaq7L02AzDNSs_otJzK4; path=/; secure; samesite=none"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:41s, HttpRequestRatePerPort:33s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1497"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "3"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "17301abe-e422-4e1b-a783-8a568ac66843"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Mason Blackwood\",\n        \"balance\": 1000,\n        \"createdAt\": \"2023-11-23T04:34:36.000Z\",\n        \"updatedAt\": \"2023-11-23T04:34:36.000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Sierra Hartford\",\n        \"balance\": 0,\n        \"createdAt\": \"2023-08-30T04:34:36.000Z\",\n        \"updatedAt\": \"2023-08-30T04:34:36.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Jasper Sterling\",\n        \"balance\": 2400,\n        \"createdAt\": \"2023-04-14T04:34:36.000Z\",\n        \"updatedAt\": \"2023-04-14T04:34:36.000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Ivy Easton\",\n        \"balance\": 5000,\n        \"createdAt\": \"2019-12-18T04:34:36.000Z\",\n        \"updatedAt\": \"2019-12-18T04:34:36.000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Griffin Wilder\",\n        \"balance\": 934,\n        \"createdAt\": \"2020-03-20T04:34:36.000Z\",\n        \"updatedAt\": \"2020-03-20T04:34:36.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/3",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}users",
+									"host": [
+										"{{base_url}}users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:30:07 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "626"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"272-T7d5jR/i9vCI3RWA3nMMcg0XVLs\""
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8E0FHi1JCVNKrny-ARCYWxPnTnl_2IGp3bQGbXqvg4KwvvH1Lh0ybwXvQolT0dHXz3BNBSkGPLGeMw228sFwTWweyfYDPKbG5mPri2W7OXYf4WhzQr-Kt1SEHKpaKAI1zXlRjNsBOP8NlJrIqVD-Pu-0OVE2qR_zVC2uumW6IXXtHAW_VFfwo-M_0I_nEfZ3GIVPeed_2OHoCkWNR66Lo47DDoQQycz9t9ywlb4uT_WW2QtZK20lZozrqn0xV-2S2ZUPjrQ9d_h5Aa7u1nvqPPo31MHJDhAVMhLHOcT6q_-q204b_tx7Aa8FvZAo23UhTGMbMJG15PaweQBw5wGfooJCVokwbpgQvg8Uc8Dh1cYupuMkifiXLiY1z3xGhLBD-Ys_I-wQ5OUIjAoOeUwtgsE7CN8e_7EEcJmcFtr_dHVWOhF7MVhNJ56m0J8KMBssFyt4QBA3Y8wih8IAVY7htqymw1V-AL0iKaPhnMNVVl-LeHY5OhVnZa2nkTCE2ptTv2OKE4ranRzw_UjJb4jFsPk2o8_zMN-CAcs2HLXuuz746taPmp16QKWc3prb-WHPVs5k1jYVOw4aaPfoA-Un3qQdOSyMJJ7kgG7oK194wGkiAmwx9XwCwzDCK4MKQcy1GIkAWpysS9GfMdwcFXHXxwKAeKu_zDBQHnjmXKc2K8jRv-0un-hOPTGLO1v0p9Hu-gIlKs3Rs6ISdD0nInbyLY6r8fZsr3yQ-aXcraFRe6qNeeIyaQ6h2gKi6t48UowZVMoiaoRSh3RpWE-JaOGBYtLTgtTn8lLSX5eP_cQyWZtZygwkslQj4oVbSZlRDD50rtjpa9uEyiW4gaJ7bcc3jK4VDSsqvR_2d7N68dpqI9id5NsUfbn30LWNwU3RFs7QjL5ELaXUV1pLWQU-LZdDXIH36bxtkpcO2tSSuPtTzg8VvWLT63cyiwziX6scQ8_HxurZzbR8-WI9jjhIEwnw2BkYMaq7L02AzDNSs_otJzK4; path=/; secure; samesite=none"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:41s, HttpRequestRatePerPort:33s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1497"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "3"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "17301abe-e422-4e1b-a783-8a568ac66843"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Mason Blackwood\",\n        \"balance\": 1000,\n        \"createdAt\": \"2023-11-23T04:34:36.000Z\",\n        \"updatedAt\": \"2023-11-23T04:34:36.000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Sierra Hartford\",\n        \"balance\": 0,\n        \"createdAt\": \"2023-08-30T04:34:36.000Z\",\n        \"updatedAt\": \"2023-08-30T04:34:36.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Jasper Sterling\",\n        \"balance\": 2400,\n        \"createdAt\": \"2023-04-14T04:34:36.000Z\",\n        \"updatedAt\": \"2023-04-14T04:34:36.000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Ivy Easton\",\n        \"balance\": 5000,\n        \"createdAt\": \"2019-12-18T04:34:36.000Z\",\n        \"updatedAt\": \"2019-12-18T04:34:36.000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Griffin Wilder\",\n        \"balance\": 934,\n        \"createdAt\": \"2020-03-20T04:34:36.000Z\",\n        \"updatedAt\": \"2020-03-20T04:34:36.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "UpdatebyId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jasper Sterling\",\r\n    \"balance\": 2400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}users/3",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Jasper\",\r\n    \"balance\": 2000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}users/3",
+									"host": [
+										"{{base_url}}users"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:49:32 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "117"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"75-TEvP1i9RQitZn5Ytl/ytkx4FA28\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:56s, HttpRequestRatePerPort:56s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1497"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "3"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "46cb769a-4fbe-4be0-8d85-b702a85f96aa"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Jasper\",\n    \"balance\": 2000,\n    \"createdAt\": \"2023-04-14T04:34:36.000Z\",\n    \"updatedAt\": \"2024-10-26T16:49:32.266Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Jasper\",\r\n    \"balance\": 2000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}users",
+							"host": [
+								"{{base_url}}users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Jasper\",\r\n    \"balance\": 2000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}users",
+									"host": [
+										"{{base_url}}users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 201
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:51:05 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "117"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"75-XmPeSVHNftowd2A0cZibccXL/LQ\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:47s, HttpRequestRatePerPort:42s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "6fcbb491-e2b2-4785-b9d0-45850db6d0e1"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Jasper\",\n    \"balance\": 2000,\n    \"createdAt\": \"2024-10-26T16:51:05.671Z\",\n    \"updatedAt\": \"2024-10-26T16:51:05.671Z\",\n    \"id\": 6\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users/7",
+							"host": [
+								"{{base_url}}users"
+							],
+							"path": [
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}users/6",
+									"host": [
+										"{{base_url}}users"
+									],
+									"path": [
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:52:17 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "0"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:59s, HttpRequestRatePerPort:27s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1496"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "4"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "f0704941-5e67-4d29-8743-4300253483fa"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customers",
+							"host": [
+								"{{base_url}}customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ulysses\",\r\n    \"cpf\": \"14050267755\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}customers",
+									"host": [
+										"{{base_url}}customers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 201
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 16:57:26 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "124"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"7c-tK+AUDtKyv5DgSDzoVcsJIXGQkc\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1498"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:6s, HttpRequestRatePerPort:22s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "f3fe291e-0555-45d6-a857-ad9690f1e7a0"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Ulysses\",\n    \"cpf\": \"14050267755\",\n    \"createdAt\": \"2024-10-26T16:57:26.862Z\",\n    \"updatedAt\": \"2024-10-26T16:57:26.862Z\",\n    \"id\": 16\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Proposals",
+			"item": [
+				{
+					"name": "FindById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}proposals/11",
+							"host": [
+								"{{base_url}}proposals"
+							],
+							"path": [
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}proposals/11",
+									"host": [
+										"{{base_url}}proposals"
+									],
+									"path": [
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 18:46:01 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "119"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"77-KwSfa4xct0hwd1o5uUZqIjK1ALg\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:4s, HttpRequestRatePerPort:48s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1496"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "4"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "af329f7d-be1a-43fb-a739-1a7135196894"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"profit\": 567,\n    \"status\": \"PENDING\",\n    \"createdAt\": \"2024-01-17T05:20:00.000Z\",\n    \"updatedAt\": \"2024-01-17T05:20:00.000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "FindAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}proposals",
+							"host": [
+								"{{base_url}}proposals"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Filtro - PENDING",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}proposals?status=PENDING",
+									"host": [
+										"{{base_url}}proposals"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "PENDING",
+											"description": "PENDING || ERROR || REFUSED || SUCCESSFUL"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 20:20:36 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "359"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"167-UtRKPXm9QhjSkQveAPdkAQmW+9M\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:43s, HttpRequestRatePerPort:45s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": ""
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": ""
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "6588fa35-4a65-46a2-8053-129c6170d1a8"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"profit\": 123,\n        \"status\": \"PENDING\",\n        \"createdAt\": \"2024-01-01T19:20:00.000Z\",\n        \"updatedAt\": \"2024-01-01T19:20:00.000Z\"\n    },\n    {\n        \"id\": 6,\n        \"profit\": 890,\n        \"status\": \"PENDING\",\n        \"createdAt\": \"2024-01-13T21:20:00.000Z\",\n        \"updatedAt\": \"2024-01-13T21:20:00.000Z\"\n    },\n    {\n        \"id\": 11,\n        \"profit\": 567,\n        \"status\": \"PENDING\",\n        \"createdAt\": \"2024-01-17T05:20:00.000Z\",\n        \"updatedAt\": \"2024-01-17T05:20:00.000Z\"\n    }\n]"
+						},
+						{
+							"name": "Filtro - REFUSED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}proposals?status=REFUSED",
+									"host": [
+										"{{base_url}}proposals"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "REFUSED",
+											"description": "PENDING || ERROR || REFUSED || SUCCESSFUL"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 20:21:38 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "120"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"78-qEmnzqPui6PJzb3+PnZV2Ygyu6o\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1497"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:42s, HttpRequestRatePerPort:9s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1496"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "4"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "d566ad92-20b2-4ece-8bcb-db154f0b7ed6"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"profit\": 789,\n        \"status\": \"REFUSED\",\n        \"createdAt\": \"2024-01-04T19:20:00.000Z\",\n        \"updatedAt\": \"2024-01-04T19:20:00.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Approve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}proposals/1/approve",
+							"host": [
+								"{{base_url}}proposals"
+							],
+							"path": [
+								"1",
+								"approve"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}proposals/1/approve",
+									"host": [
+										"{{base_url}}proposals"
+									],
+									"path": [
+										"1",
+										"approve"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 201
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 20:24:00 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "121"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"79-ES6GH1MXgYGgPqFIFz7SKt6w7fI\""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1498"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:60s, HttpRequestRatePerPort:47s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1496"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "4"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "90777d7b-2a71-4104-a1b5-a59b54bd8413"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"profit\": 123,\n    \"status\": \"SUCCESSFUL\",\n    \"createdAt\": \"2024-01-01T19:20:00.000Z\",\n    \"updatedAt\": \"2024-10-26T20:24:00.539Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ProfitByUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}proposals/admin/profit-by-status",
+							"host": [
+								"{{base_url}}proposals"
+							],
+							"path": [
+								"admin",
+								"profit-by-status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sucess",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}proposals/admin/profit-by-status",
+									"host": [
+										"{{base_url}}proposals"
+									],
+									"path": [
+										"admin",
+										"profit-by-status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": ":status",
+									"value": 200
+								},
+								{
+									"key": "date",
+									"value": "Sat, 26 Oct 2024 22:40:01 GMT"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "550"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache,no-store"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"226-YK5sQQ8KerDTneKwWY4oZ4oLhoI\""
+								},
+								{
+									"key": "expires",
+									"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "set-cookie",
+									"value": ".Tunnels.Relay.WebForwarding.Cookies=CfDJ8E0FHi1JCVNKrny-ARCYWxOtCMp_PDG7Csn4mKkcSjD-OfDgxzAzaTN3vEPknuW2W5bQMeD5nR6oEtXYyk-HLGAKbbpG5UJ62vG_FQWBjiYCoJswBKNEivmlO-OvYzMLIFqwi6HhFBod8p5bUbbb6ugX-oTy2H7ZGn-pXRQgzJW8edOj1xxaEXk2B5kx3lB4Pj5h490hKm0H9y-GxofWQng0GmZZ0NvAC57px6joFP9xnCfusXWiaAnHX50ZVLnDUvyCxIUHo_fP6s8Rfcti2KiZW0bjko5wX05xTWLryDoryDm8Kobws_ubjKMzvPP6zheBMVTgVCisDYV5jWFb08wDD4TERZlIm20af3AmaiFQ65uGg5AHbV-Y3oYRRxAJwn9v1hLXC0V6u9B0uv_NHXDZrTTe_c0vdAxjQRfPVrF_pbUbSnkf_cEdyDMXYphXODPjHSYBxP9CnjfXpLFUYJ2b2RdTyU9nyReQCJP5rD1KWCgGuPYW766d26MVg9TK7A_TtqPMDVNzJRYGXvMmcTupiweww7D2NKMxKo1tJEBaBnpABSlfZtV3jhy8Hh8UY8C6mPbEM7Swb_mNuKjYDgny1cr5YvOv47E8QRMZVdf66LsUa7GksGaA4pkNDA_kvVL2zzEHzw9ADmAbXELaOzvbjitd-NZKuiclJppOtsg67qsno9FyeHObBD8n1qlaA9zdNIgP_ZJtlU67n6s4KneM70gqWk6YkGyPDFxxXAjFWSzyL8IwuM4P4cmt0ytJKSyITzOtkhf5c1ysim1XgZ4s7Pw-M54lRQOl_n7AbOh9zQZ5nsU9LE0eRsl6YjfC2R3bIAKrxO5jlOIl8KkQGpO1INTdpmRyUaGV6qSIpaPKAGOBJWlPj8xtCoI5gFWLqfSbNozFa1q6zQmAeER84mLBL5p9XJDXa6l7OJvHf7mI58mIpsQmlVkR6h_kUEP1VYVH9EzAMhM5Fkta-9yF0F32OYbULUAWXLe7QSLFEWRC; path=/; secure; samesite=none"
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff"
+								},
+								{
+									"key": "ratelimit-limit",
+									"value": "HttpRequestRatePerPort:1500/m, HttpRequestRatePerPort:1500/m"
+								},
+								{
+									"key": "ratelimit-remaining",
+									"value": "HttpRequestRatePerPort:1499, HttpRequestRatePerPort:1499"
+								},
+								{
+									"key": "ratelimit-reset",
+									"value": "HttpRequestRatePerPort:6s, HttpRequestRatePerPort:40s"
+								},
+								{
+									"key": "x-report-abuse",
+									"value": "https://msrc.microsoft.com/report/abuse, https://msrc.microsoft.com/report/abuse"
+								},
+								{
+									"key": "x-ms-ratelimit-limit",
+									"value": "1500"
+								},
+								{
+									"key": "x-ms-ratelimit-remaining",
+									"value": "1499"
+								},
+								{
+									"key": "x-ms-ratelimit-used",
+									"value": "1"
+								},
+								{
+									"key": "x-ms-ratelimit-reset",
+									"value": "0"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "vssaas-request-id",
+									"value": "61572b56-f91c-4fae-8501-f196b3afc4f0"
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "x-served-by",
+									"value": "tunnels-prod-rel-brs-v3-cluster"
+								},
+								{
+									"key": "x-robots-tag",
+									"value": "noindex, nofollow"
+								},
+								{
+									"key": "referrer-policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile\": [\n        {\n            \"userId\": 1,\n            \"fullName\": \"Mason Blackwood\",\n            \"profits\": {\n                \"PENDING\": 1457,\n                \"SUCCESSFUL\": 123,\n                \"REFUSED\": 0,\n                \"ERROR\": 0\n            }\n        },\n        {\n            \"userId\": 2,\n            \"fullName\": \"Sierra Hartford\",\n            \"profits\": {\n                \"PENDING\": 1013,\n                \"SUCCESSFUL\": 456,\n                \"REFUSED\": 0,\n                \"ERROR\": 0\n            }\n        },\n        {\n            \"userId\": 3,\n            \"fullName\": \"Jasper Sterling\",\n            \"profits\": {\n                \"PENDING\": 123,\n                \"SUCCESSFUL\": 456,\n                \"REFUSED\": 789,\n                \"ERROR\": 0\n            }\n        },\n        {\n            \"userId\": 4,\n            \"fullName\": \"Ivy Easton\",\n            \"profits\": {\n                \"PENDING\": 0,\n                \"SUCCESSFUL\": 456,\n                \"REFUSED\": 789,\n                \"ERROR\": 234\n            }\n        },\n        {\n            \"userId\": 5,\n            \"fullName\": \"Griffin Wilder\",\n            \"profits\": {\n                \"PENDING\": 567,\n                \"SUCCESSFUL\": 0,\n                \"REFUSED\": 789,\n                \"ERROR\": 234\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://solid-system-7jg7459g74jhxjqr-3005.app.github.dev/",
+			"type": "string"
+		}
+	]
+}

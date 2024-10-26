@@ -1,15 +1,10 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
-
+import { ProposalStatus } from 'src/entities/entities.entity';
 export class CreateProposalDto {
-  @IsString()
-  @IsNotEmpty()
-  title: string;
-
-  @IsString()
-  @IsNotEmpty()
-  description: string;
-
   @IsNumber()
   @IsNotEmpty()
   profit: number;
+  @IsString()
+  @IsNotEmpty()
+  status: ProposalStatus;
 }
