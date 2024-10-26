@@ -1,21 +1,17 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { dataSourceOptions } from './configs/ormconfig';
+
 import { UserMiddleware } from './get-user-middleware';
-import { User } from './entities/entities.entity';
-import { ProposalsModule } from './proposals/proposals.module';
+import { ProposalModule } from './module/proposals/proposals.module';
+import { UsersModule } from './module/users/users.module';
+import { CustomersModule } from './module/customers/customers.module';
+import { AppController } from './app.controller';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(dataSourceOptions),
-    TypeOrmModule.forFeature([User]),
-    ProposalsModule,
-  ],
+  imports: [ProposalModule, UsersModule, CustomersModule],
   controllers: [AppController],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(UserMiddleware).forRoutes('*'); // Apply it for all routes or specify routes
+    consumer.apply(UserMiddleware).forRoutes('*');
   }
 }

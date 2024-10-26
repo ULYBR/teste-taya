@@ -1,21 +1,16 @@
-import { Controller, Get, Param, Req } from '@nestjs/common';
-import { Proposal, User } from './entities/entities.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller()
+@Controller('api')
 export class AppController {
-  constructor(
-    @InjectRepository(Proposal)
-    private proposalRepository: Repository<Proposal>,
-  ) {}
+  constructor() {}
 
-  @Get('/proposals/:id')
-  async getProposalById(
-    @Param('id') proposalId: number,
-    @Req() req: { user: User },
-  ): Promise<Proposal> {
-    console.log(req);
-    return await this.proposalRepository.findOne({ where: { id: proposalId } });
+  @Get()
+  getStatus(): string {
+    return 'API is running!';
+  }
+
+  @Get('health')
+  getHealth(): string {
+    return 'Healthy';
   }
 }

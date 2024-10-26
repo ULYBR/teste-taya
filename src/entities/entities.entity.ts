@@ -87,4 +87,5 @@ export class Proposal {
 
   @Column({ type: 'datetime' })
   updatedAt: Date;
+  static status: any;
 }

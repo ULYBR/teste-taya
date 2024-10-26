@@ -56,7 +56,7 @@ Abaixo está uma lista das APIs necessárias para o aplicativo.
 
 1. **_GET_** `/proposals/refused` - Obter propostas rejeitadas criadas por um user.
 
-1. **_POST_** `/proposals/:proposal_id/approve` - Dado uma proposta pendente, aprovar a proposta por id, retornar a proposta atualizada, valor do profit deve ser creadita no usuario que executou a operacao.
+1. **_POST_** `/proposals/:proposal_id/approve` - Dado uma proposta pendente, aprovar a proposta por id, retornar a proposta atualizada, valor do profit deve ser credita no usuario que executou a operacao.
 
 1. **_GET_** `/admin/profit-by-status` - Retorna a soma do profit de todas as propostas por usuario agrupada por status.
 
